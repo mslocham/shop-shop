@@ -4,10 +4,18 @@ import { pluralize } from "../../utils/helpers";
 import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 
-function ProductItem() {
+function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
 
   const { cart } = state;
+
+  const {
+    image,
+    name,
+    _id,
+    price,
+    quantity
+  } = item;
 
   const addToCart = () => {
     // find the cart item with the matching id
